@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": false,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "ignorePatterns": ["**/*.test.js", "**/*.spec.js", "build/**/*"],
+  "rules": {}
+}
