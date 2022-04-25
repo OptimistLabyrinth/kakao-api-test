@@ -12,11 +12,11 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.resolve('public')))
 
-const indexRouter = require('./api/index')
+const v1Router = require('./api/v1/index')
 
-app.use('/api', indexRouter)
+app.use('/api', v1Router)
 app.use('*', (req, res) => {
-  res.sendFile(path.resolve('public', 'index.html'))
+  res.redirect('/')
 })
 
 module.exports = app
