@@ -1,12 +1,36 @@
 #!/usr/bin/env node
 const app = require('./app')
 const debug = require('debug')('server:server')
-const http = require('http')
+const dotenv = require('dotenv')
+const fs = require('fs')
+const https = require('https')
+const path = require('path')
+
+dotenv.config({ path: '.env' })
+// eslint-disable-next-line no-undef
+if (process.env.NODE_ENV === 'production') {
+  dotenv.config({ path: path.resolve('.env.production.local') })
+} else {
+  dotenv.config({ path: path.resolve('.env.development.local') })
+}
 
 // eslint-disable-next-line no-undef
 const port = normalizePort(process.env.PORT || '3500')
 app.set('port', port)
-const server = http.createServer(app)
+// eslint-disable-next-line no-undef
+const domainUrl = process.env.DOMAIN_URL
+const server = https.createServer(
+  {
+    key: fs.readFileSync(
+      path.resolve('certificates', domainUrl, 'privkey.pem')
+    ),
+    cert: fs.readFileSync(path.resolve('certificates', domainUrl, 'cert.pem')),
+    ca: fs.readFileSync(
+      path.resolve('certificates', domainUrl, 'fullchain.pem')
+    ),
+  },
+  app
+)
 server.listen(port)
 server.on('error', onError)
 server.on('listening', onListening)
