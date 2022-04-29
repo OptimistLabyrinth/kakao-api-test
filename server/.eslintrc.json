@@ -8,6 +8,11 @@
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "ignorePatterns": ["**/*.test.js", "**/*.spec.js", "build/**/*"],
+  "ignorePatterns": [
+    "**/*.test.js",
+    "**/*.spec.js",
+    "build/**/*",
+    "kakao-sdk/*"
+  ],
   "rules": {}
 }
