@@ -1,11 +1,11 @@
 import Home from './Home'
 import KakaoDevSdk from './KakaoDevSdk'
-import ReactKakaoLogin from './ReactKakaoLogin'
+import KakaoRestApi from './KakaoRestApi'
 
 const Login = {
   Home: Home,
-  ReactKakaoLogin: ReactKakaoLogin,
   KakaoDevSdk: KakaoDevSdk,
+  KakaoRestApi: KakaoRestApi,
 }
 
 export default Login

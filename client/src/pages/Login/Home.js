@@ -5,12 +5,9 @@ import paths from '../../paths'
 
 const title = '카카오로 로그인하기'
 
-const buttonReactKakaoLogin = {
-  text: 'react-kakao-login 패키지 사용하기',
-}
-
-const buttonKakaoDevSdk = {
-  text: 'https://developers.kakao.com/ SDK 소스 코드 사용하기',
+const buttonsText = {
+  devSdk: 'https://developers.kakao.com/ SDK 소스 코드 사용하기',
+  restApi: 'REST API 요청으로 처리하기',
 }
 
 function Home() {
@@ -25,19 +22,21 @@ function Home() {
         <MarginedDiv>
           <PaddedButton
             onClick={() => {
-              navigate(paths.login.reactKakaoLogin)
+              navigate(paths.login.kakaoDevSdk.before)
             }}
           >
-            {buttonReactKakaoLogin.text}
+            {buttonsText.devSdk}
           </PaddedButton>
         </MarginedDiv>
+      </div>
+      <div>
         <MarginedDiv>
           <PaddedButton
             onClick={() => {
-              navigate(paths.login.kakaoDevSdk)
+              navigate(paths.login.kakaoRestApi.before)
             }}
           >
-            {buttonKakaoDevSdk.text}
+            {buttonsText.restApi}
           </PaddedButton>
         </MarginedDiv>
       </div>
